@@ -6,6 +6,8 @@ version: '3.4'
 
 volumes:
   l1_data:
+  l1_bn_data:
+  l1_vc_data:
   l2_data:
   op_log:
 
@@ -36,6 +38,39 @@ services:
     environment:
       GETH_MINER_RECOMMIT: 100ms
 
+  l1-bn:
+    depends_on:
+      - l1
+    build:
+        context: .
+        dockerfile: Dockerfile.l1-lh
+    ports:
+      - "9000:9000"
+      - "5052:5052"
+    volumes:
+      - "l1_bn_data:/db"
+      - "${PWD}/test-jwt-secret.txt:/config/test-jwt-secret.txt"
+    environment:
+      LH_EXECUTION_ENDPOINT: "http://l1:8545"
+    entrypoint:
+      - "/bin/sh"
+      - "/entrypoint-bn.sh"
+
+  l1-vc:
+    depends_on:
+      - l1
+      - l1-bn
+    build:
+        context: .
+        dockerfile: Dockerfile.l1-lh
+    volumes:
+      - "l1_vc_data:/db"
+    environment:
+      LH_BEACON_NODES: "http://l1-bn:8545"
+    entrypoint:
+      - "/bin/sh"
+      - "/entrypoint-vc.sh"
+
   l2:
     build:
       context: .
@@ -58,6 +93,7 @@ services:
     depends_on:
       - op_stack_go_builder
       - l1
+      - l1-bn
       - l2
     build:
       context: ../
@@ -67,7 +103,7 @@ services:
     image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:devnet
     command: >
       op-node
-      --l1=ws://l1:8546
+      --l1=ws://l1:8546 # TODO: Add beacon endpoint
       --l2=http://l2:8551
       --l2.jwt-secret=/config/test-jwt-secret.txt
       --sequencer.enabled
