@@ -43,7 +43,7 @@ services:
       - l1
     build:
         context: .
-        dockerfile: l1-lighthouse-bn.Dockerfile
+        dockerfile: l1-lighthouse-src.Dockerfile
     ports:
       - "9000:9000"
       - "5052:5052"
@@ -62,7 +62,7 @@ services:
       - l1-bn
     build:
         context: .
-        dockerfile: l1-lighthouse-vc.Dockerfile
+        dockerfile: l1-lighthouse-src.Dockerfile
     volumes:
       - "l1_vc_data:/db"
     environment:
