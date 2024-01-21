@@ -26,7 +26,7 @@ services:
   l1:
     build:
       context: .
-      dockerfile: Dockerfile.l1
+      dockerfile: l1-geth.Dockerfile
     ports:
       - "8545:8545"
       - "8546:8546"
@@ -43,7 +43,7 @@ services:
       - l1
     build:
         context: .
-        dockerfile: Dockerfile.l1-lh
+        dockerfile: l1-lighthouse-bn.Dockerfile
     ports:
       - "9000:9000"
       - "5052:5052"
@@ -62,7 +62,7 @@ services:
       - l1-bn
     build:
         context: .
-        dockerfile: Dockerfile.l1-lh
+        dockerfile: l1-lighthouse-vc.Dockerfile
     volumes:
       - "l1_vc_data:/db"
     environment:
@@ -74,7 +74,7 @@ services:
   l2:
     build:
       context: .
-      dockerfile: Dockerfile.l2
+      dockerfile: l2-op-geth.Dockerfile
     ports:
       - "9545:8545"
       - "8060:6060"
@@ -207,17 +207,3 @@ services:
       - "${PWD}/../.devnet/:/usr/share/nginx/html/:ro"
     security_opt:
       - "no-new-privileges:true"
-
-#  stateviz:
-#    build:
-#      context: ../
-#      dockerfile: ./ops-bedrock/Dockerfile.stateviz
-#    command:
-#      - stateviz
-#      - -addr=0.0.0.0:8080
-#      - -snapshot=/op_log/snapshot.log
-#      - -refresh=10s
-#    ports:
-#      - "9090:8080"
-#    volumes:
-#      - op_log:/op_log:ro
