@@ -12,7 +12,7 @@ exec /usr/local/bin/lighthouse \
 	--http-address=0.0.0.0 \
 	--http-port=5052 \
 	--validator-monitor-auto \
-	--http-allow-origin \
+	--http-allow-origin='*' \
 	--listen-address=0.0.0.0 \
 	--port=9000 \
 	--target-peers=0 \

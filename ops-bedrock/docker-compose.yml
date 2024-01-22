@@ -51,6 +51,7 @@ services:
       - "l1_bn_data:/db"
       - "${PWD}/test-jwt-secret.txt:/config/jwt-secret.txt"
       - "${PWD}/beacon-data/config.yaml:/genesis/config.yaml"
+      - "${PWD}/beacon-data/deploy_block.txt:/genesis/deploy_block.txt"
       - "${PWD}/../.devnet/genesis-l1.ssz:/genesis/genesis.ssz"
     environment:
       LH_EXECUTION_ENDPOINT: "http://l1:8545"
@@ -70,6 +71,7 @@ services:
       - "${PWD}/beacon-data/keys:/validators/keys"
       - "${PWD}/beacon-data/secrets:/validators/secrets"
       - "${PWD}/beacon-data/config.yaml:/genesis/config.yaml"
+      - "${PWD}/beacon-data/deploy_block.txt:/genesis/deploy_block.txt"
       - "${PWD}/../.devnet/genesis-l1.ssz:/genesis/genesis.ssz"
     environment:
       LH_BEACON_NODES: "http://l1-bn:5052"
@@ -100,6 +102,7 @@ services:
       - op_stack_go_builder
       - l1
       - l1-bn
+      - l1-vc
       - l2
     build:
       context: ../

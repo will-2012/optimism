@@ -3,7 +3,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get install -y cmake libclang-de
 
 RUN git clone https://github.com/sigp/lighthouse.git
 
-ARG FEATURES
+ARG FEATURES=spec-minimal
 ARG PROFILE=release
 ENV FEATURES $FEATURES
 ENV PROFILE $PROFILE
