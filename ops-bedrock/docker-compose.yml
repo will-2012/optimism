@@ -34,7 +34,7 @@ services:
     volumes:
       - "l1_data:/db"
       - "${PWD}/../.devnet/genesis-l1.json:/genesis.json"
-      - "${PWD}/test-jwt-secret.txt:/config/test-jwt-secret.txt"
+      - "${PWD}/test-jwt-secret.txt:/config/jwt-secret.txt"
     environment:
       GETH_MINER_RECOMMIT: 100ms
 
@@ -89,11 +89,10 @@ services:
     volumes:
       - "l2_data:/db"
       - "${PWD}/../.devnet/genesis-l2.json:/genesis.json"
-      - "${PWD}/test-jwt-secret.txt:/config/test-jwt-secret.txt"
+      - "${PWD}/test-jwt-secret.txt:/config/jwt-secret.txt"
     entrypoint:  # pass the L2 specific flags by overriding the entry-point and adding extra arguments
       - "/bin/sh"
       - "/entrypoint.sh"
-      - "--authrpc.jwtsecret=/config/test-jwt-secret.txt"
     environment:
       GETH_MINER_RECOMMIT: 100ms
 
@@ -114,7 +113,7 @@ services:
       op-node
       --l1=ws://l1:8546 # TODO: Add beacon endpoint
       --l2=http://l2:8551
-      --l2.jwt-secret=/config/test-jwt-secret.txt
+      --l2.jwt-secret=/config/jwt-secret.txt
       --sequencer.enabled
       --sequencer.l1-confs=0
       --verifier.l1-confs=0
@@ -142,7 +141,7 @@ services:
     volumes:
       - "${PWD}/p2p-sequencer-key.txt:/config/p2p-sequencer-key.txt"
       - "${PWD}/p2p-node-key.txt:/config/p2p-node-key.txt"
-      - "${PWD}/test-jwt-secret.txt:/config/test-jwt-secret.txt"
+      - "${PWD}/test-jwt-secret.txt:/config/jwt-secret.txt"
       - "${PWD}/../.devnet/rollup.json:/rollup.json"
       - op_log:/op_log
 
