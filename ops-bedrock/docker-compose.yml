@@ -74,7 +74,7 @@ services:
       - "${PWD}/beacon-data/deploy_block.txt:/genesis/deploy_block.txt"
       - "${PWD}/../.devnet/genesis-l1.ssz:/genesis/genesis.ssz"
     environment:
-      LH_BEACON_NODES: "http://l1-bn:5052"
+      LH_BEACON_NODES: "http://l1-bn:5052/"
     entrypoint:
       - "/bin/sh"
       - "/entrypoint-vc.sh"
