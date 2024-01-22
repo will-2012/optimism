@@ -54,7 +54,7 @@ services:
       - "${PWD}/beacon-data/deploy_block.txt:/genesis/deploy_block.txt"
       - "${PWD}/../.devnet/genesis-l1.ssz:/genesis/genesis.ssz"
     environment:
-      LH_EXECUTION_ENDPOINT: "http://l1:8545"
+      LH_EXECUTION_ENDPOINT: "http://l1:8551"
     entrypoint:
       - "/bin/sh"
       - "/entrypoint-bn.sh"
