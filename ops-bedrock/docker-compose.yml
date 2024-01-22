@@ -68,8 +68,8 @@ services:
         dockerfile: l1-lighthouse-src.Dockerfile
     volumes:
       - "l1_vc_data:/db"
-      - "${PWD}/beacon-data/keys:/validators/keys"
-      - "${PWD}/beacon-data/secrets:/validators/secrets"
+      - "${PWD}/beacon-data/data/keys:/validator_setup/validators"
+      - "${PWD}/beacon-data/data/secrets:/validator_setup/secrets"
       - "${PWD}/beacon-data/config.yaml:/genesis/config.yaml"
       - "${PWD}/beacon-data/deploy_block.txt:/genesis/deploy_block.txt"
       - "${PWD}/../.devnet/genesis-l1.ssz:/genesis/genesis.ssz"
