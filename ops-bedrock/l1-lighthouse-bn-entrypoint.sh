@@ -23,5 +23,5 @@ exec /usr/local/bin/lighthouse \
 	--execution-jwt=/config/jwt-secret.txt \
 	--allow-insecure-genesis-sync \
 	--http-allow-sync-stalled \
-	--debug-level=debug \
+	--debug-level=info \
 	"$@"
