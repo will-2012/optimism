@@ -3,18 +3,17 @@ package genesis
 import (
 	"errors"
 	"fmt"
-	"github.com/ethereum-optimism/optimism/op-bindings/predeploys"
-	"github.com/ethereum-optimism/optimism/op-chain-ops/genesis/beacondeposit"
 	"math/big"
-
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	gstate "github.com/ethereum/go-ethereum/core/state"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/params"
 
 	"github.com/ethereum-optimism/optimism/op-bindings/bindings"
+	"github.com/ethereum-optimism/optimism/op-bindings/predeploys"
+	"github.com/ethereum-optimism/optimism/op-chain-ops/genesis/beacondeposit"
 	"github.com/ethereum-optimism/optimism/op-chain-ops/state"
 )
 
