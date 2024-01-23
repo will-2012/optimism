@@ -40,10 +40,12 @@
   "eip1559Denominator": 50,
   "eip1559DenominatorCanyon": 250,
   "eip1559Elasticity": 6,
-  "l1GenesisBlockTimestamp": "0x64c811bf",
+  "l1GenesisBlockTimestamp": "0x123",
   "l2GenesisRegolithTimeOffset": "0x0",
-  "l2GenesisDeltaTimeOffset": null,
   "l2GenesisCanyonTimeOffset": "0x0",
+  "l2GenesisDeltaTimeOffset": "0x0",
+  "l2GenesisEcotoneTimeOffset": "0x40",
+  "l1CancunTimeOffset": "0x30",
   "systemConfigStartBlock": 0,
   "requiredProtocolVersion": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "recommendedProtocolVersion": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -54,6 +56,5 @@
   "faultGameGenesisOutputRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "faultGameSplitDepth": 14,
   "preimageOracleMinProposalSize": 1800000,
-  "preimageOracleChallengePeriod": 86400,
-  "l1CancunTimeOffset": "0x30"
+  "preimageOracleChallengePeriod": 86400
 }
