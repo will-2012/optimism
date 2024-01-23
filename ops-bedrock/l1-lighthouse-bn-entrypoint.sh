@@ -1,6 +1,8 @@
 #!/bin/bash
 set -exu
 
+# --http-allow-sync-stalled is required since we don't have any peers
+# --allow-insecure-genesis-sync is required since we start from genesis, and it may be an old genesis
 exec /usr/local/bin/lighthouse \
   bn \
 	--datadir="/db" \
@@ -19,4 +21,7 @@ exec /usr/local/bin/lighthouse \
 	--testnet-dir=/genesis \
   --execution-endpoint="${LH_EXECUTION_ENDPOINT}" \
 	--execution-jwt=/config/jwt-secret.txt \
+	--allow-insecure-genesis-sync \
+	--http-allow-sync-stalled \
+	--debug-level=debug \
 	"$@"

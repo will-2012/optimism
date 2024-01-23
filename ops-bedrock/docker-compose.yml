@@ -111,7 +111,8 @@ services:
     image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:devnet
     command: >
       op-node
-      --l1=ws://l1:8546 # TODO: Add beacon endpoint
+      --l1=ws://l1:8546
+      --l1.beacon=http://l1-bn:5052
       --l2=http://l2:8551
       --l2.jwt-secret=/config/jwt-secret.txt
       --sequencer.enabled

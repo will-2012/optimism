@@ -11,4 +11,5 @@ eth2-testnet-genesis capella \
   --state-output=../.devnet/genesis-l1.ssz \
   --tranches-dir=../.devnet/tranches \
   --mnemonics=mnemonics.yaml \
-  --eth1-withdrawal-address=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  --eth1-withdrawal-address=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa \
+  --eth1-match-genesis-time

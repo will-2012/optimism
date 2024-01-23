@@ -28,8 +28,8 @@ MIN_GENESIS_ACTIVE_VALIDATOR_COUNT: 64
 MIN_GENESIS_TIME: 1578009600
 # Highest byte set to 0xFF, this is dev network
 GENESIS_FORK_VERSION: 0x000000FF
-# [customized] Faster to spin up testnets, but does not give validator reasonable warning time for genesis
-GENESIS_DELAY: 300
+# [customized] don't wait with genesis if we don't have to
+GENESIS_DELAY: 0
 
 
 # Forking
