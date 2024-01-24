@@ -318,10 +318,10 @@ abstract contract CrossDomainMessenger is
 
     /// @notice Retrieves the address of the paired CrossDomainMessenger contract on the other chain
     ///         Public getter is legacy and will be removed in the future. Use `otherMessenger()` instead.
-    /// @return CrossDomainMessenger contract on the other chain.
+    /// @return Address of CrossDomainMessenger contract on the other chain.
     /// @custom:legacy
-    function OTHER_MESSENGER() public view returns (CrossDomainMessenger) {
-        return otherMessenger;
+    function OTHER_MESSENGER() public view returns (address) {
+        return address(otherMessenger);
     }
 
     /// @notice Retrieves the next message nonce. Message version will be added to the upper two

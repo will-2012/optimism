@@ -42,6 +42,7 @@ interface CrossDomainMessenger {
     function MIN_GAS_DYNAMIC_OVERHEAD_DENOMINATOR() external view returns (uint64);
     function MIN_GAS_DYNAMIC_OVERHEAD_NUMERATOR() external view returns (uint64);
     function OTHER_MESSENGER() external view returns (address);
+    function otherMessenger() external view returns (CrossDomainMessenger);
     function baseGas(bytes memory _message, uint32 _minGasLimit) external pure returns (uint64);
     function failedMessages(bytes32) external view returns (bool);
     function messageNonce() external view returns (uint256);
