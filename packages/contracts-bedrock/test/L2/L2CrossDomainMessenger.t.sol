@@ -21,7 +21,7 @@ contract L2CrossDomainMessenger_Test is Bridge_Initializer {
 
     /// @dev Tests that the implementation is initialized correctly.
     function test_constructor_succeeds() external {
-        L2CrossDomainMessenger impl = L2CrossDomainMessenger(deploy.mustGetAddress("L2CrossDomainMessenger"));
+        L2CrossDomainMessenger impl = new L2CrossDomainMessenger();
         assertEq(address(impl.OTHER_MESSENGER()), address(l1CrossDomainMessenger));
         assertEq(address(impl.otherMessenger()), address(l1CrossDomainMessenger));
         assertEq(address(impl.l1CrossDomainMessenger()), address(l1CrossDomainMessenger));
