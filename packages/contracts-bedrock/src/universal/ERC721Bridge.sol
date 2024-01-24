@@ -91,10 +91,10 @@ abstract contract ERC721Bridge is Initializable {
 
     /// @notice Legacy getter for other bridge address.
     ///         Public getter is legacy and will be removed in the future. Use `otherBridge` instead.
-    /// @return Contract of the bridge on the other network.
+    /// @return Address of the contract of the bridge on the other network.
     /// @custom:legacy
-    function OTHER_BRIDGE() external view returns (StandardBridge) {
-        return otherBridge;
+    function OTHER_BRIDGE() external view returns (address) {
+        return address(otherBridge);
     }
 
     /// @notice This function should return true if the contract is paused.
